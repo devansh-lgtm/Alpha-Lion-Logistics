@@ -1,0 +1,9 @@
+{
+  "name": "Alpha Lion Logistics",
+  "short_name": "Alpha Lion",
+  "icons": [{ "src": "/logo.png", "sizes": "356x386", "type": "image/png" }],
+  "theme_color": "#FFDD00",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "start_url": "/"
+}

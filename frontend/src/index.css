@@ -1,0 +1,118 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Plus Jakarta Sans", "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  /* Buy Me a Coffee inspired palette */
+  --color-brand: #ffdd00;
+  --color-brand-50: #fffbe0;
+  --color-brand-100: #fff6b3;
+  --color-brand-200: #fff080;
+  --color-brand-300: #ffe94d;
+  --color-brand-400: #ffe326;
+  --color-brand-500: #ffdd00;
+  --color-brand-600: #e6c700;
+  --color-brand-700: #b39b00;
+
+  --color-ink: #0d0c22;
+  --color-ink-700: #2b2a3d;
+  --color-ink-500: #5f5e73;
+  --color-ink-300: #a3a2b4;
+  --color-line: #e8e8ee;
+  --color-cloud: #f8f8fa;
+
+  --shadow-soft: 0 10px 30px -12px rgb(13 12 34 / 0.18);
+  --shadow-lift: 0 25px 50px -20px rgb(13 12 34 / 0.28);
+  --shadow-brand: 0 12px 28px -10px rgb(255 221 0 / 0.65);
+
+  --radius-4xl: 2rem;
+}
+
+@utility btn {
+  @apply inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full px-6 py-3 text-sm font-bold transition-all duration-200 will-change-transform select-none active:scale-[0.98];
+}
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-white text-ink font-sans antialiased;
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4 {
+    @apply font-display tracking-tight text-ink;
+  }
+  ::selection {
+    background: var(--color-brand);
+    color: var(--color-ink);
+  }
+  :focus-visible {
+    outline: 3px solid var(--color-brand);
+    outline-offset: 2px;
+  }
+  input, select, textarea {
+    @apply w-full rounded-xl border border-line bg-white px-4 py-3 text-ink placeholder:text-ink-300 transition focus:border-ink focus:ring-4 focus:ring-brand/40 focus:outline-none;
+  }
+  input[type="date"] {
+    min-height: 3rem;
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+  .btn-primary {
+    @apply btn bg-brand text-ink shadow-brand hover:bg-brand-400 hover:-translate-y-0.5;
+  }
+  .btn-dark {
+    @apply btn bg-ink text-white hover:bg-ink-700 hover:-translate-y-0.5;
+  }
+  .btn-outline {
+    @apply btn border-2 border-ink bg-white text-ink hover:bg-ink hover:text-white;
+  }
+  .btn-ghost {
+    @apply btn text-ink hover:bg-cloud;
+  }
+  .eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full bg-brand-50 px-3 py-1 text-xs font-bold uppercase tracking-wider text-ink;
+  }
+  .card {
+    @apply rounded-3xl border border-line bg-white p-6 shadow-soft transition-shadow duration-300 hover:shadow-lift;
+  }
+  .highlight {
+    background-image: linear-gradient(transparent 60%, var(--color-brand) 60%);
+  }
+  .label {
+    @apply mb-1.5 block text-sm font-semibold text-ink;
+  }
+  .error-text {
+    @apply mt-1 text-xs font-medium text-red-600;
+  }
+}
+
+.dot-grid {
+  background-image: radial-gradient(circle at 1px 1px, rgb(13 12 34 / 0.08) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+.marquee {
+  animation: marquee 30s linear infinite;
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}

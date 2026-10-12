@@ -1,0 +1,28 @@
+{
+  "name": "alpha-lion-logistics",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "sitemap": "node scripts/gen-sitemap.mjs",
+    "build": "node scripts/gen-sitemap.mjs && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^5.2.2",
+    "framer-motion": "^12.23.24",
+    "lucide-react": "^0.545.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-hook-form": "^7.65.0",
+    "react-router-dom": "^7.9.3",
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.1.14",
+    "@vitejs/plugin-react": "^5.0.0",
+    "tailwindcss": "^4.1.14",
+    "vite": "^7.0.0"
+  }
+}
